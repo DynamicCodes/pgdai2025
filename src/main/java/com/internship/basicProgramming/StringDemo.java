@@ -68,5 +68,14 @@ public class StringDemo {
         System.out.println("checking last index of " + str1.lastIndexOf("o"));
 
 
+        System.out.println("Reverse a String with the methods we have learned");
+        String str6 = "Hello, java programmers, welcome to PGDAI course";
+        String rev = "";
+        for(int i= str6.length()-1; i>=0; i--){
+            rev = rev.concat(String.valueOf(str6.charAt(i)));
+        }
+        System.out.println(rev);
+
+
     }
 }
