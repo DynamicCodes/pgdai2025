@@ -122,6 +122,14 @@ public class BasicStreamDemo {
         System.out.println("methods for findFirst and findAny");
         Optional<Integer> first = numbersForTerminal.stream().filter(n->n>5).findAny();
         first.ifPresent(System.out::println);
+/*
+        int first = numbersForTerminal.stream()
+                              .filter(n -> n > 5)
+                              .findFirst()
+                              .orElse(0); // Returns 0 if no match exists
+
+        System.out.println(first);
+        */
 
         // 7. min() max()
         System.out.println("method for min and max");
