@@ -139,5 +139,22 @@ public class BasicStreamDemo {
         System.out.println("min: " + min);
         System.out.println("max: " + max);
 
+        // demonstrate stream can be used only once
+        List<String> items = Arrays.asList("Apple", "Banana", "Cherry");
+
+        // 1. Create the stream
+        Stream<String> myStream = items.stream();
+
+        // 2. First terminal operation (This works)
+        System.out.println("First use - Count: " + myStream.count());
+
+        try {
+            // 3. Second terminal operation on the SAME stream (This fails)
+            System.out.println("Second use - Any match? " + myStream.anyMatch(s -> s.startsWith("A")));
+        } catch (IllegalStateException e) {
+            System.err.println("\nError: " + e.getMessage());
+            System.err.println("Reason: You cannot reuse a stream after it has been closed or operated upon!");
+        }
+
     }
 }
